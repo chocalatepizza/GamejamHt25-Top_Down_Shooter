@@ -3,10 +3,14 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 
-    
+    //Crossbow
     public Transform crossbowFirePoint;
+
     public GameObject arrowPrefab;
 
+    [SerializeField] float crossbowCooldown;
+
+    //Shotgun
     public Transform ShotgunFirePoint1;
     public Transform ShotgunFirePoint2;
     public Transform ShotgunFirePoint3;
@@ -17,7 +21,9 @@ public class Weapon : MonoBehaviour
     public Transform ShotgunFirePoint8;
     public Transform ShotgunFirePoint9;
 
-    public GameObject shotgunPrefab; 
+    public GameObject shotgunPrefab;
+
+    [SerializeField] float shotgunCooldown;
 
     KeyCode crossbowShoot = KeyCode.Mouse0;
     KeyCode shotgunShoot = KeyCode.None;

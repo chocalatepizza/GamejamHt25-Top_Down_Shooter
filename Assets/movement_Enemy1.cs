@@ -1,32 +1,59 @@
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class Movement_Enemy1 : MonoBehaviour
+public class PlayerDetection : MonoBehaviour
 {
-    public float moveSpeed = 3.5f;
-    Rigidbody2D rb;
-    Transform target;
-    Vector2 moveDirection;
+    public Transform origin, end, player;
+    public float radarSpd;
+    public bool playerDetected;
 
-    private void Awake()
+    public static bool playerIsDetected;
+
+    private int playerLayer = 1 << 8;
+    private Rigidbody2D enemyRb;
+    private Vector3 facePlayer;
+
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        enemyRb = GetComponentInParent<Rigidbody2D>();
+        playerIsDetected = false;
     }
 
-    void Start()
+    private void Update()
     {
-        target = GameObject.Find("Player").transform;
-    }
-    void Update()
-    {
-        if (target)
+        PlayerDetector();
+        if (playerDetected == false)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
-            moveDirection = direction;
+            Radar();
+        }
+        else { PlayerIsDetected(); }
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
+    }
+
+    void PlayerDetector()
+    {
+        Debug.DrawLine(origin.position, end.position, Color.red);
+        playerDetected = Physics2D.Linecast(origin.position, end.position, playerLayer);
+    }
+
+    void Radar()
+    {
+        end.RotateAround(origin.position, Vector3.forward, radarSpd * Time.deltaTime);
+        playerIsDetected = false;
+    }
+
+    void PlayersPosition()
+    {
+        facePlayer = player.position - enemyRb.transform.GetChild(0).GetChild(0).position;
+        enemyRb.transform.GetChild(0).GetChild(0).up = -facePlayer;
+    }
+
+    void PlayerIsDetected()
+    {
+        if (playerDetected == true)
+        {
+            playerIsDetected = true;
+            end.position = player.position;
+            PlayersPosition();
         }
     }
 }

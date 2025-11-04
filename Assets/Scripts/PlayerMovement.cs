@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] KeyCode up = KeyCode.UpArrow;
     [SerializeField] KeyCode down = KeyCode.DownArrow;
 
-    [SerializeField, Range(1, 3)] float speed;
+    [SerializeField, Range(1, 10)] float speed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

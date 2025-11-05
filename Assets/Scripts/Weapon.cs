@@ -11,19 +11,22 @@ public class Weapon : MonoBehaviour
     [SerializeField] float crossbowCooldown;
 
     //Shotgun
-    public Transform ShotgunFirePoint1;
-    public Transform ShotgunFirePoint2;
-    public Transform ShotgunFirePoint3;
-    public Transform ShotgunFirePoint4;
-    public Transform ShotgunFirePoint5;
-    public Transform ShotgunFirePoint6;
-    public Transform ShotgunFirePoint7;
-    public Transform ShotgunFirePoint8;
-    public Transform ShotgunFirePoint9;
+    public Transform shotgunFirePoint1;
+    public Transform shotgunFirePoint2;
+    public Transform shotgunFirePoint3;
+    public Transform shotgunFirePoint4;
+    public Transform shotgunFirePoint5;
+    public Transform shotgunFirePoint6;
+    public Transform shotgunFirePoint7;
+    public Transform shotgunFirePoint8;
+    public Transform shotgunFirePoint9;
 
     public GameObject shotgunPrefab;
 
     [SerializeField] float shotgunCooldown;
+
+    //Laser beam wand
+    public Transform laserbeamFirepoint;
 
     KeyCode crossbowShoot = KeyCode.Mouse0;
     KeyCode shotgunShoot = KeyCode.None;
@@ -70,14 +73,14 @@ public class Weapon : MonoBehaviour
 
     void ShootgunShoot()
     {
-        Instantiate(shotgunPrefab, ShotgunFirePoint1.position, ShotgunFirePoint1.rotation);
-        Instantiate(shotgunPrefab, ShotgunFirePoint2.position, ShotgunFirePoint2.rotation);
-        Instantiate(shotgunPrefab, ShotgunFirePoint3.position, ShotgunFirePoint3.rotation);
-        Instantiate(shotgunPrefab, ShotgunFirePoint4.position, ShotgunFirePoint4.rotation);
-        Instantiate(shotgunPrefab, ShotgunFirePoint5.position, ShotgunFirePoint5.rotation);
-        Instantiate(shotgunPrefab, ShotgunFirePoint6.position, ShotgunFirePoint6.rotation);
-        Instantiate(shotgunPrefab, ShotgunFirePoint7.position, ShotgunFirePoint7.rotation);
-        Instantiate(shotgunPrefab, ShotgunFirePoint8.position, ShotgunFirePoint8.rotation);
-        Instantiate(shotgunPrefab, ShotgunFirePoint9.position, ShotgunFirePoint9.rotation);
+        Instantiate(shotgunPrefab, shotgunFirePoint1.position, shotgunFirePoint1.rotation);
+        Instantiate(shotgunPrefab, shotgunFirePoint2.position, shotgunFirePoint2.rotation);
+        Instantiate(shotgunPrefab, shotgunFirePoint3.position, shotgunFirePoint3.rotation);
+        Instantiate(shotgunPrefab, shotgunFirePoint4.position, shotgunFirePoint4.rotation);
+        Instantiate(shotgunPrefab, shotgunFirePoint5.position, shotgunFirePoint5.rotation);
+        Instantiate(shotgunPrefab, shotgunFirePoint6.position, shotgunFirePoint6.rotation);
+        Instantiate(shotgunPrefab, shotgunFirePoint7.position, shotgunFirePoint7.rotation);
+        Instantiate(shotgunPrefab, shotgunFirePoint8.position, shotgunFirePoint8.rotation);
+        Instantiate(shotgunPrefab, shotgunFirePoint9.position, shotgunFirePoint9.rotation);
     }
 }

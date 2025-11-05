@@ -11,19 +11,14 @@ public class Weapon : MonoBehaviour
     [SerializeField] float crossbowCooldown;
 
     //Shotgun
-    public Transform shotgunFirePoint1;
-    public Transform shotgunFirePoint2;
-    public Transform shotgunFirePoint3;
-    public Transform shotgunFirePoint4;
-    public Transform shotgunFirePoint5;
-    public Transform shotgunFirePoint6;
-    public Transform shotgunFirePoint7;
-    public Transform shotgunFirePoint8;
-    public Transform shotgunFirePoint9;
 
-    public GameObject shotgunPrefab;
+    public GameObject bulletPrefab;      // Assign your bullet prefab in the Inspector
+    public Transform firePoint;          // Assign the fire point in the Inspector
+    public int bulletCount = 9;          // Number of bullets to fire
+    public float spreadAngle = 45f;      // Total spread angle in degrees
+    public float shotgunFireCooldown = 1f;      // Cooldown in seconds
+    private float LastFireTime = -Mathf.Infinity;
 
-    [SerializeField] float shotgunCooldown;
 
     //Laser beam wand
     public Transform laserbeamFirepoint;
@@ -34,7 +29,7 @@ public class Weapon : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -62,6 +57,8 @@ public class Weapon : MonoBehaviour
         if (Input.GetKeyDown(shotgunShoot))
         {
             ShootgunShoot();
+            LastFireTime = Time.time;
+
         }
     }
 
@@ -73,14 +70,15 @@ public class Weapon : MonoBehaviour
 
     void ShootgunShoot()
     {
-        Instantiate(shotgunPrefab, shotgunFirePoint1.position, shotgunFirePoint1.rotation);
-        Instantiate(shotgunPrefab, shotgunFirePoint2.position, shotgunFirePoint2.rotation);
-        Instantiate(shotgunPrefab, shotgunFirePoint3.position, shotgunFirePoint3.rotation);
-        Instantiate(shotgunPrefab, shotgunFirePoint4.position, shotgunFirePoint4.rotation);
-        Instantiate(shotgunPrefab, shotgunFirePoint5.position, shotgunFirePoint5.rotation);
-        Instantiate(shotgunPrefab, shotgunFirePoint6.position, shotgunFirePoint6.rotation);
-        Instantiate(shotgunPrefab, shotgunFirePoint7.position, shotgunFirePoint7.rotation);
-        Instantiate(shotgunPrefab, shotgunFirePoint8.position, shotgunFirePoint8.rotation);
-        Instantiate(shotgunPrefab, shotgunFirePoint9.position, shotgunFirePoint9.rotation);
+        float angleStep = spreadAngle / (bulletCount - 1);
+        float startAngle = -spreadAngle / 2;
+
+        for (int i = 0; i < bulletCount; i++)
+        {
+            float angle = startAngle + i * angleStep;
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * rotation);
+        }
+
     }
 }

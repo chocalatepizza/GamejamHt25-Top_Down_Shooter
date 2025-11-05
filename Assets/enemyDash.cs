@@ -6,31 +6,50 @@ public class enemyDash : MonoBehaviour
 {
     private GameObject player;
     private float speed = 5f;
+    bool isDashing = false;
+    float dashTimer = 0;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
+   
+    
     void Update()
     {
-        //Finds the position of the player
-        Vector2 playerPosition = player.transform.position;
-        Vector2 direction = (playerPosition - (Vector2)transform.position).normalized;
-        transform.up = direction;
-
-        //gets it to move
-        transform.position += transform.up * speed * Time.deltaTime;
-
-        //checks distance between enemy and this enemy
-        float playerDistance = Vector3.Distance(transform.position, playerPosition);
-        if (playerDistance <= 4)
+      
+        if (isDashing == false)
         {
-            transform.position = transform.up;
-         
+            //Finds the position of the player
+            Vector2 playerPosition = player.transform.position;
+            Vector2 direction = (playerPosition - (Vector2)transform.position).normalized;
+            transform.up = direction;
+           
+            //gets it to move
+            transform.position += transform.up * speed * Time.deltaTime;
+
+            //checks distance between enemy and this enemy
+            float playerDistance = Vector3.Distance(transform.position, playerPosition);
+            if (playerDistance <= 3)
+            {
+                isDashing = true;
+            }
         }
         else
-        { 
-            speed = 5f;
+        {
+            speed = 10;
+            transform.position += transform.up * speed * Time.deltaTime;
+            dashTimer += Time.deltaTime;
+            if (dashTimer > 1)
+            {
+                isDashing = false;
+                speed = 5;
+                dashTimer = 0;
+            }
         }
+     
+
+       
+      
     }
 }

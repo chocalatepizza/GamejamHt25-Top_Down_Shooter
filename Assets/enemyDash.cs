@@ -25,16 +25,12 @@ public class enemyDash : MonoBehaviour
         float playerDistance = Vector3.Distance(transform.position, playerPosition);
         if (playerDistance <= 4)
         {
-            speed = 10f;
-             += 1;
+            transform.position = transform.up;
+         
         }
         else
         { 
             speed = 5f;
-
-            playerPosition = player.transform.position;
-            direction = (playerPosition - (Vector2)transform.position).normalized;
-            transform.up = direction;
         }
     }
 }

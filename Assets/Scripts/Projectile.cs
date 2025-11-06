@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
             StartCoroutine(HitDeletee());
         }
     }
-
+   
 
     private IEnumerator Deletee()
     {

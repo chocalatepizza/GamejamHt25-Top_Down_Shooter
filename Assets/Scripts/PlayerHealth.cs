@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
    [SerializeField] public int maxHealth = 3;
    [SerializeField] private int currentHealth;
-    
+   [SerializeField] public bool DMGTake = false;
 
     public Slider healthBar;
 
@@ -14,6 +14,22 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
+    }
+
+    public void Update()
+    {
+      
+        if (DMGTake == true)
+        {
+            gameObject.SetActive(false);
+            print("removed health point");
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
+
+
     }
 
     public void TakeDamage(int amount)

@@ -1371,7 +1371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
-  healthBar: {fileID: 0}
+  DMGTake: 0
+  healthBar: {fileID: 401114905}
 --- !u!114 &2140183143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,6 +1744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 3
+  DMGTake: 0
   healthBar: {fileID: 401114905}
 --- !u!4 &8200249992116568250
 Transform:

@@ -13,43 +13,32 @@ public class enemyDash : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-   
-    
+
+
     void Update()
     {
-      
-        if (isDashing == false)
-        {
+
+        
+        
+
             //Finds the position of the player
             Vector2 playerPosition = player.transform.position;
             Vector2 direction = (playerPosition - (Vector2)transform.position).normalized;
             transform.up = direction;
-           
+
             //gets it to move
             transform.position += transform.up * speed * Time.deltaTime;
 
             //checks distance between enemy and this enemy
             float playerDistance = Vector3.Distance(transform.position, playerPosition);
-            if (playerDistance <= 3)
+            if (playerDistance <= 4)
             {
-                isDashing = true;
+                transform.position = transform.up;
             }
-        }
-        else
-        {
-            speed = 10;
-            transform.position += transform.up * speed * Time.deltaTime;
-            dashTimer += Time.deltaTime;
-            if (dashTimer > 1)
+            else
             {
-                isDashing = false;
-                speed = 5;
-                dashTimer = 0;
+                speed = 5f;
             }
-        }
-     
-
-       
-      
+        
     }
 }

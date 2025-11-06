@@ -9,11 +9,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] float projectileDeleatSpeed = 1f;
     [SerializeField] float hitDeleatSpeed = 0f;
     public int damage = 40;
+    [SerializeField] bool moving;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb.linearVelocity = transform.up * speed;
+        if (moving == true)
+        {
+            rb.linearVelocity = transform.up * speed;
+        }
+        
+        
         StartCoroutine(Deletee());
     }
 

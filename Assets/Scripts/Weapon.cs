@@ -5,10 +5,10 @@ public class Weapon : MonoBehaviour
 
     //Crossbow
     public Transform crossbowFirePoint;
-
     public GameObject arrowPrefab;
+    public float crossbowCooldown = 1f;
+    private float lastArrowedFirerd = -Mathf.Infinity;
 
-    [SerializeField] float crossbowCooldown;
 
     //Shotgun
 
@@ -17,14 +17,20 @@ public class Weapon : MonoBehaviour
     public int bulletCount = 9;          // Number of bullets to fire
     public float spreadAngle = 45f;      // Total spread angle in degrees
     public float shotgunFireCooldown = 1f;      // Cooldown in seconds
-    private float LastFireTime = -Mathf.Infinity;
+    private float lastShotgunFireTime = -Mathf.Infinity;
+
 
 
     //Laser beam wand
     public Transform laserbeamFirepoint;
+    public GameObject laserbeamPrefab;
+    public float laserbeamCooldown = 10f;
+    private float lastLaserShoot = -Mathf.Infinity;
 
+    //weapon keys
     KeyCode crossbowShoot = KeyCode.Mouse0;
     KeyCode shotgunShoot = KeyCode.None;
+    KeyCode laserbeamShoot = KeyCode.None;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,29 +42,44 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         //weapon change
+        
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            crossbowShoot = KeyCode.None;
+            shotgunShoot = KeyCode.None;
+            laserbeamShoot = KeyCode.Mouse0;
+        }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             crossbowShoot = KeyCode.None;
             shotgunShoot = KeyCode.Mouse0;
-
+            laserbeamShoot = KeyCode.None;
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             crossbowShoot = KeyCode.Mouse0;
             shotgunShoot = KeyCode.None;
+            laserbeamShoot = KeyCode.None;
         }
 
         //shooting
-        if (Input.GetKeyDown(crossbowShoot))
+        if (Input.GetKeyDown(crossbowShoot) && Time.time >= lastArrowedFirerd + crossbowCooldown)
         {
             CrossBowShoot();
+            lastArrowedFirerd = Time.time;
         }
 
-        if (Input.GetKeyDown(shotgunShoot))
+        if (Input.GetKeyDown(shotgunShoot) && Time.time >= lastShotgunFireTime + shotgunFireCooldown)
         {
             ShootgunShoot();
-            LastFireTime = Time.time;
+            lastShotgunFireTime = Time.time;
 
+        }
+
+        if (Input.GetKeyDown(laserbeamShoot) && Time.time >= lastLaserShoot + laserbeamCooldown)
+        {
+            LaserFire();
+            lastLaserShoot = Time.time;
         }
     }
 
@@ -73,12 +94,19 @@ public class Weapon : MonoBehaviour
         float angleStep = spreadAngle / (bulletCount - 1);
         float startAngle = -spreadAngle / 2;
 
-        for (int i = 0; i < bulletCount; i++)
+
+
+        for (int i = 0; i < bulletCount; i++ )
         {
             float angle = startAngle + i * angleStep;
             Quaternion rotation = Quaternion.Euler(0, 0, angle);
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation * rotation);
         }
 
+    }
+
+    void LaserFire()
+    {
+        Instantiate(laserbeamPrefab, laserbeamFirepoint.position, laserbeamFirepoint.rotation);
     }
 }

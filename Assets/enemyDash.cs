@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class enemyDash : MonoBehaviour
 {
     private GameObject player;
-    private float speed = 5f;
+    private float speed = 8f;
     bool isDashing = false;
     float dashTimer = 0;
 
@@ -39,13 +39,13 @@ public class enemyDash : MonoBehaviour
         }
         else
         {
-            speed = 10;
+            speed = 12;
             transform.position += transform.up * speed * Time.deltaTime;
             dashTimer += Time.deltaTime;
             if (dashTimer > 1)
             {
                 isDashing = false;
-                speed = 5;
+                speed = 8;
                 dashTimer = 0;
             }
         }

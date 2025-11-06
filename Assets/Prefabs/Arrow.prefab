@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   rb: {fileID: 2323652633198934458}
-  projectileDeleatSpeed: 1
-  hitDeleatSpeed: 0
+  projectileDeleatSpeed: 3.5
+  hitDeleatSpeed: 3.5
   damage: 45
   moving: 1

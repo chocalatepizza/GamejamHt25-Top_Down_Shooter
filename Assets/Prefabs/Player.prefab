@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crossbowFirePoint: {fileID: 8200249992913720711}
-  arrowPrefab: {fileID: 8509601290573679278, guid: a0fe8a3b3dae8e448b3a0fe1c6564dcb, type: 3}
+  arrowPrefab: {fileID: 1407398877533111894}
   crossbowCooldown: 0.5
   bulletPrefab: {fileID: 3776925945423472229, guid: 3b501ed7eebb468498d894ddf62abe8e, type: 3}
   firePoint: {fileID: 1898740112073006569}

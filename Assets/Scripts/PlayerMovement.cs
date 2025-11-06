@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 dashDirection;
     bool isDashing = false;
     bool canDash = true;
-    float dashTimer = 0f;
-    float dashCooldown = 0f;
+    float dashTimer = 0.2f;
+    float dashCooldown = 1f;
 
     void Start()
     {

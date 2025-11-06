@@ -181,7 +181,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &64951363
 BoxCollider2D:
@@ -341,7 +345,7 @@ Transform:
   m_GameObject: {fileID: 76494283}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.5, y: -9.679998, z: 0.1181437}
+  m_LocalPosition: {x: -22.28, y: -10.94, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -373,7 +377,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &76494287
 BoxCollider2D:
@@ -533,7 +541,7 @@ Transform:
   m_GameObject: {fileID: 79561764}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.06, y: -5.64, z: 0.1181437}
+  m_LocalPosition: {x: -47.77, y: -5.64, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,7 +573,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &79561768
 BoxCollider2D:
@@ -725,7 +737,7 @@ Transform:
   m_GameObject: {fileID: 79730804}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.24, y: -9.868885, z: 0.1181437}
+  m_LocalPosition: {x: -47.95, y: -9.868885, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -757,7 +769,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &79730808
 BoxCollider2D:
@@ -1010,7 +1026,7 @@ Transform:
   m_GameObject: {fileID: 249348339}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -56.239998, y: -9.74, z: 0.1181437}
+  m_LocalPosition: {x: -63.09, y: -9.74, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1042,7 +1058,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &249348343
 BoxCollider2D:
@@ -9883,7 +9903,7 @@ Transform:
   m_GameObject: {fileID: 403630519}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -56.059998, y: -5.5111136, z: 0.1181437}
+  m_LocalPosition: {x: -62.91, y: -5.5111136, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9915,7 +9935,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &403630523
 BoxCollider2D:
@@ -10092,7 +10116,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &459569535
 BoxCollider2D:
@@ -10231,7 +10259,7 @@ Transform:
   m_GameObject: {fileID: 459569532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.86, y: 1.22, z: 0.1181437}
+  m_LocalPosition: {x: -13.34, y: 1.22, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10360,7 +10388,7 @@ Transform:
   m_GameObject: {fileID: 593412117}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38.06, y: 6.408886, z: 0.1181437}
+  m_LocalPosition: {x: -33.61, y: 6.408886, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10392,7 +10420,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &593412121
 BoxCollider2D:
@@ -10552,7 +10584,7 @@ Transform:
   m_GameObject: {fileID: 599701998}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.13, y: 4.2299995, z: 0.1181437}
+  m_LocalPosition: {x: -36.49, y: 4.2299995, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10584,7 +10616,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &599702002
 BoxCollider2D:
@@ -10777,7 +10813,7 @@ Transform:
   m_GameObject: {fileID: 656681916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.32, y: -5.451113, z: 0.1181437}
+  m_LocalPosition: {x: -27.65, y: -10.17, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10809,7 +10845,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &656681920
 BoxCollider2D:
@@ -11228,7 +11268,7 @@ Transform:
   m_GameObject: {fileID: 1017562638}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38.24, y: 2.18, z: 0.1181437}
+  m_LocalPosition: {x: -33.79, y: 2.18, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11260,7 +11300,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1017562642
 BoxCollider2D:
@@ -11420,7 +11464,7 @@ Transform:
   m_GameObject: {fileID: 1041514105}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.64, y: -5.1299996, z: 0.1181437}
+  m_LocalPosition: {x: -26.21, y: -9.28, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11452,7 +11496,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1041514109
 BoxCollider2D:
@@ -11757,7 +11805,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1158163921
 BoxCollider2D:
@@ -11896,7 +11948,7 @@ Transform:
   m_GameObject: {fileID: 1158163918}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.380001, y: 6.67, z: 0.1181437}
+  m_LocalPosition: {x: -13.860001, y: 6.67, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12077,7 +12129,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1330568069
 BoxCollider2D:
@@ -12352,7 +12408,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1500197550
 BoxCollider2D:
@@ -18212,7 +18272,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1648663720
 BoxCollider2D:
@@ -18404,7 +18468,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1743871582
 BoxCollider2D:
@@ -18689,7 +18757,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1756978258
 BoxCollider2D:
@@ -18896,7 +18968,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1780644182
 BoxCollider2D:
@@ -19159,7 +19235,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1885844875
 BoxCollider2D:
@@ -19336,7 +19416,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1929506073
 BoxCollider2D:
@@ -19511,7 +19595,7 @@ Transform:
   m_GameObject: {fileID: 1991609195}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -60.63, y: -7.8699994, z: 0.1181437}
+  m_LocalPosition: {x: -67.48, y: -7.8699994, z: 0.1181437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19543,7 +19627,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &1991609199
 BoxCollider2D:
@@ -19910,7 +19998,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  detectionRange: 6
+  detectionRange: 15
+  dashRange: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+  dashCooldown: 2
   player: {fileID: 0}
 --- !u!61 &2142996068
 BoxCollider2D:

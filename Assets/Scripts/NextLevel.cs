@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    [SerializeField] private string sceneToLoad = "NextScene"; // Set this in the Inspector
+    [SerializeField] private string sceneToLoad; // The scene that it will change into
 
     private void OnTriggerEnter2D(Collider2D other)
     {

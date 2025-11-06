@@ -352,6 +352,8 @@ GameObject:
   - component: {fileID: 1119203543}
   - component: {fileID: 1119203546}
   - component: {fileID: 1119203549}
+  - component: {fileID: 1119203551}
+  - component: {fileID: 1119203550}
   m_Layer: 0
   m_Name: enemyDash
   m_TagString: enemyDash
@@ -468,6 +470,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8339791497e12094daa0a81fe767c6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1119203550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119203542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc4a25fdf2d5fb4a94e0b2304432fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!60 &1119203551
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119203542}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.28866667}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.5773587}
+      - {x: -0.5, y: -0.28866667}
+      - {x: 0.5, y: -0.28866667}
+  m_UseDelaunayMesh: 0
 --- !u!1 &201114045204495399
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +706,7 @@ MonoBehaviour:
   right: 100
   up: 119
   down: 115
-  speed: 7.5
+  shift: 304
 --- !u!1 &4296749702524581357
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,17 +810,18 @@ MonoBehaviour:
   crossbowFirePoint: {fileID: 8556577199674287104}
   arrowPrefab: {fileID: 8509601290573679278, guid: a0fe8a3b3dae8e448b3a0fe1c6564dcb, type: 3}
   crossbowCooldown: 0
-  ShotgunFirePoint1: {fileID: 6910538802828904525}
-  ShotgunFirePoint2: {fileID: 5607915997524820345}
-  ShotgunFirePoint3: {fileID: 1206880258964212205}
-  ShotgunFirePoint4: {fileID: 2302907440242325003}
-  ShotgunFirePoint5: {fileID: 1466664332670370358}
-  ShotgunFirePoint6: {fileID: 947017461779898318}
-  ShotgunFirePoint7: {fileID: 2432494172146672711}
-  ShotgunFirePoint8: {fileID: 8564588258829226341}
-  ShotgunFirePoint9: {fileID: 3329990102196142740}
+  shotgunFirePoint1: {fileID: 6910538802828904525}
+  shotgunFirePoint2: {fileID: 5607915997524820345}
+  shotgunFirePoint3: {fileID: 1206880258964212205}
+  shotgunFirePoint4: {fileID: 2302907440242325003}
+  shotgunFirePoint5: {fileID: 1466664332670370358}
+  shotgunFirePoint6: {fileID: 947017461779898318}
+  shotgunFirePoint7: {fileID: 2432494172146672711}
+  shotgunFirePoint8: {fileID: 8564588258829226341}
+  shotgunFirePoint9: {fileID: 3329990102196142740}
   shotgunPrefab: {fileID: 3776925945423472229, guid: 3b501ed7eebb468498d894ddf62abe8e, type: 3}
   shotgunCooldown: 0
+  laserbeamFirepoint: {fileID: 0}
 --- !u!4 &6910538802828904525
 Transform:
   m_ObjectHideFlags: 0
@@ -898,13 +964,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2287445941825012814}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.09851798, w: 0.99513525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.051, y: 0.518, z: 0.065319985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4479555924235468634}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.308}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8564588258829226341
 Transform:
   m_ObjectHideFlags: 0

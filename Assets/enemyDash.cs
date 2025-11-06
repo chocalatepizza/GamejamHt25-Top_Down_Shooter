@@ -26,7 +26,7 @@ public class enemyDash : MonoBehaviour
         if (playerDistance <= 4)
         {
             speed = 10f;
-             += 1;
+             
         }
         else
         { 

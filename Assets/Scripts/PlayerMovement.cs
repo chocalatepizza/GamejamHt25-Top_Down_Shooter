@@ -7,14 +7,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] KeyCode right = KeyCode.RightArrow;
     [SerializeField] KeyCode up = KeyCode.UpArrow;
     [SerializeField] KeyCode down = KeyCode.DownArrow;
-    [SerializeField] KeyCode shift = KeyCode.LeftShift;
-    [SerializeField] KeyCode space = KeyCode.Space;
+    [SerializeField] KeyCode dash = KeyCode.Space;
 
     float speed = 6f;
     bool canDash = true;
     bool isDashing = false;
     float dashTimer = 0;
-    //Behövde ändra speed annars exploderade unity, sorry -Charlie
+    float dashCooldown = 0;
+    float dirTimer = 0;
+    Vector3 dashDir = new Vector3();
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //movement
-        if (isDashing != true)
+        if (isDashing == false)
         {
             if (Input.GetKey(left))
             {
@@ -47,37 +49,58 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.position -= new Vector3(0, 1, 0) * speed * Time.deltaTime;
             }
-            //spring
-            if (Input.GetKey(shift))
+      
+            if (Input.GetKey(dash) && (canDash = true))
             {
-                speed = 10f;
-            }
-            else
-            { speed = 5f; }
 
-            if (Input.GetKey(space) && (canDash = true))
-            {
                 isDashing = true;
+                canDash = false;
+                dashCooldown = 0;
+                dashTimer= 0;
+                dirTimer = 0;
+            }
+        }
+
+        if (Input.GetKey(left))
+        {
+            print("vänster");
+            dashDir = new Vector3(-2, 0, 0);
+        }
+
+        if (Input.GetKey(right) && (dirTimer < 0.05f))
+        {
+            dashDir = new Vector3(2, 0, 0);
+        }
+
+        if (Input.GetKey(up) && (dirTimer < 0.05f))
+        {
+            dashDir = new Vector3(0, 2, 0);
+        }
+
+        if (Input.GetKey(down) && (dirTimer < 0.05f))
+        {
+            dashDir = new Vector3(0, -2, 0);
+        }
+
+        if (isDashing == true)
+        {
+            dashTimer += Time.deltaTime;
+            dirTimer += Time.deltaTime;
+            transform.position += dashDir * speed * Time.deltaTime;
+
+            if (dashTimer >= 0.5)
+            {
+                isDashing = false;
                 canDash = false;
             }
         }
-        if (isDashing == true)
-        {
-            
 
+        //rotation
+        Vector3 mousePos = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
+        Vector2 dir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
+        transform.up = dir;
 
-        }
-
-
-
-    //rotation
-    Vector3 mousePos = Input.mousePosition;
-    mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-    Vector2 dir = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
-    transform.up = dir;
     }
 }
-
-

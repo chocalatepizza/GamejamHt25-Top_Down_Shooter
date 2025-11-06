@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 3;
     private int currentHealth;
 
     public Slider healthBar;
@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth == 0)
         {
             Debug.Log("Player died!");
-            // Här kan du lägga till vad som händer när spelaren dör
+            // player died
         }
     }
 

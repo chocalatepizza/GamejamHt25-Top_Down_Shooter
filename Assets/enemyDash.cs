@@ -18,9 +18,8 @@ public class enemyDash : MonoBehaviour
     void Update()
     {
 
-        
-        
-
+        if (isDashing == false)
+        {
             //Finds the position of the player
             Vector2 playerPosition = player.transform.position;
             Vector2 direction = (playerPosition - (Vector2)transform.position).normalized;
@@ -31,14 +30,24 @@ public class enemyDash : MonoBehaviour
 
             //checks distance between enemy and this enemy
             float playerDistance = Vector3.Distance(transform.position, playerPosition);
-            if (playerDistance <= 4)
+
+
+            if (playerDistance <= 3)
             {
-                transform.position = transform.up;
+                isDashing = true;
             }
-            else
+        }
+        else
+        {
+            speed = 10;
+            transform.position += transform.up * speed * Time.deltaTime;
+            dashTimer += Time.deltaTime;
+            if (dashTimer > 1)
             {
-                speed = 5f;
+                isDashing = false;
+                speed = 5;
+                dashTimer = 0;
             }
-        
+        }
     }
 }

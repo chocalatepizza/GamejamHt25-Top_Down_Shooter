@@ -351,8 +351,8 @@ GameObject:
   - component: {fileID: 1119203544}
   - component: {fileID: 1119203543}
   - component: {fileID: 1119203546}
-  - component: {fileID: 1119203549}
   - component: {fileID: 1119203551}
+  - component: {fileID: 1119203549}
   - component: {fileID: 1119203550}
   m_Layer: 0
   m_Name: enemyDash

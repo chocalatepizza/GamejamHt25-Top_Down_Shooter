@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5205404533521481789}
   - component: {fileID: 4809281023925623289}
   - component: {fileID: 830264183873800924}
+  - component: {fileID: 6392777944244351004}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1407398877533111894}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -110,8 +111,11 @@ MonoBehaviour:
   right: 100
   up: 119
   down: 115
-  shift: 304
-  space: 32
+  dash: 32
+  speed: 6
+  dashSpeed: 18
+  dashDuration: 0.3
+  dashCooldownTime: 1
 --- !u!114 &5205404533521481789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crossbowFirePoint: {fileID: 8200249992913720711}
-  arrowPrefab: {fileID: 1407398877533111894}
+  arrowPrefab: {fileID: 8509601290573679278, guid: a0fe8a3b3dae8e448b3a0fe1c6564dcb, type: 3}
   crossbowCooldown: 0.5
   bulletPrefab: {fileID: 3776925945423472229, guid: 3b501ed7eebb468498d894ddf62abe8e, type: 3}
   firePoint: {fileID: 1898740112073006569}
@@ -158,9 +162,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!60 &830264183873800924
 PolygonCollider2D:
@@ -212,6 +216,26 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &6392777944244351004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407398877533111894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67bbc19e8e8b73245bebb46957d02dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 3
+  invulnerabilityTime: 2
+  heartImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  deathMenu: {fileID: 0}
 --- !u!1 &1786963396645418441
 GameObject:
   m_ObjectHideFlags: 0

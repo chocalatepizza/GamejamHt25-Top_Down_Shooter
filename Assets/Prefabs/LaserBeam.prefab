@@ -103,9 +103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   rb: {fileID: 0}
-  projectileDeleatSpeed: 4
-  hitDeleatSpeed: 4
-  damage: 100
+  projectileDeleatSpeed: 1
+  hitDeleatSpeed: 1
+  damage: 1000
   moving: 0
 --- !u!70 &5025112162372943417
 CapsuleCollider2D:

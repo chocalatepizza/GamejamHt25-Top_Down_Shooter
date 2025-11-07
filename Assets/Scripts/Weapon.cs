@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Weapon : MonoBehaviour
 {
@@ -33,10 +34,13 @@ public class Weapon : MonoBehaviour
     KeyCode shotgunShoot = KeyCode.None;
     KeyCode laserbeamShoot = KeyCode.None;
 
+    //Animation
+    private Animator animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -49,40 +53,45 @@ public class Weapon : MonoBehaviour
             crossbowShoot = KeyCode.None;
             shotgunShoot = KeyCode.None;
             laserbeamShoot = KeyCode.Mouse0;
+            animator.SetInteger("Weapon", 2);
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             crossbowShoot = KeyCode.None;
             shotgunShoot = KeyCode.Mouse0;
             laserbeamShoot = KeyCode.None;
+            animator.SetInteger("Weapon", 1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             crossbowShoot = KeyCode.Mouse0;
             shotgunShoot = KeyCode.None;
             laserbeamShoot = KeyCode.None;
+            animator.SetInteger("Weapon", 0);
         }
 
         //shooting
         if (Input.GetKeyDown(crossbowShoot) && Time.time >= lastArrowedFirerd + crossbowCooldown)
         {
-            CrossBowShoot();
             lastArrowedFirerd = Time.time;
+            animator.SetTrigger("Shoot");
+            CrossBowShoot();
         }
 
         if (Input.GetKeyDown(shotgunShoot) && Time.time >= lastShotgunFireTime + shotgunFireCooldown)
         {
-            ShootgunShoot();
             lastShotgunFireTime = Time.time;
-           shotgunSoundEffect.Play();
-     
-
+            shotgunSoundEffect.Play();
+            animator.SetTrigger("Shoot");
+            ShootgunShoot();
         }
 
         if (Input.GetKeyDown(laserbeamShoot) && Time.time >= lastLaserShoot + laserbeamCooldown)
         {
-            LaserFire();
             lastLaserShoot = Time.time;
+            animator.SetTrigger("Shoot");
+            LaserFire();
         }
     }
 

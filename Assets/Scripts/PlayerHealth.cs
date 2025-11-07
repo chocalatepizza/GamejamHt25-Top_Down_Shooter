@@ -77,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
     {
         for (int i = 0; i < heartImages.Count; i++)
         {
-            heartImages[i].color = i < currentHealth ? Color.red : Color.gray;
+            heartImages[i].color = i < currentHealth ? Color.white : Color.black;
         }
     }
     public void Retry()

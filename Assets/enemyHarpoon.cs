@@ -3,10 +3,12 @@ using UnityEngine;
 public class enemyHarpoon : MonoBehaviour
 {
     private GameObject player;
-    private float speed = 6f;
+    public float speed = 6f;
     bool tryShoot = false;
     bool tryFlee = false;
-    float dashTimer = 0;
+    public float fireDistance = 6;
+    public float fleeDistance = 3;
+
 
     void Start()
     {
@@ -32,7 +34,7 @@ public class enemyHarpoon : MonoBehaviour
         { speed = 0f; }
         if (tryFlee == true)
         {
-            speed = 8f;
+            speed += 2f;
             transform.position -= transform.up * speed * Time.deltaTime; 
         }
 

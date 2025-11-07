@@ -86,9 +86,9 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void ExitGame()
+    public void ReturnToMain()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Main-Menu");
     }
 
 }//Liam,Gustaw

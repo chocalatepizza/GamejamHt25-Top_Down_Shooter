@@ -1,54 +1,94 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-   [SerializeField] public int maxHealth = 3;
-   [SerializeField] private int currentHealth;
-   [SerializeField] public bool DMGTake = false;
+    [SerializeField] public int maxHealth = 3;
+    [SerializeField] private int currentHealth;
+    [SerializeField] private float invulnerabilityTime = 1f;
+    [SerializeField] private List<Image> heartImages; 
 
-    public Slider healthBar;
+    private bool isInvulnerable = false;
+    private float invulTimer = 0f;
+
+    //Death menu
+    [SerializeField] private GameObject deathMenu; 
+
+    private bool isDead = false;
+
 
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.maxValue = maxHealth;
-        healthBar.value = currentHealth;
+        deathMenu.SetActive(false);
+        UpdateHearts();
     }
 
-    public void Update()
+    void Update()
     {
-      
-        if (DMGTake == true)
+        if (isInvulnerable)
         {
-            gameObject.SetActive(false);
-            print("removed health point");
+            invulTimer += Time.deltaTime;
+            if (invulTimer >= invulnerabilityTime)
+            {
+                isInvulnerable = false;
+                invulTimer = 0f;
+            }
         }
-        else
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
         {
-            gameObject.SetActive(true);
+            TakeDamage(1); // Adjust damage value as needed
         }
-
-
     }
 
     public void TakeDamage(int amount)
     {
-        currentHealth = amount;
-        healthBar.value = currentHealth;
+        if (isInvulnerable) return;
+        if (isDead) return;
+        currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHearts();
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Player died!");
+            isDead = true;
+            deathMenu.SetActive(true); // Show death menu
+            Time.timeScale = 0f; // Pause game
+
         }
+
+        isInvulnerable = true;
     }
 
     public void Heal(int amount)
     {
         currentHealth += amount;
-        if (currentHealth > maxHealth)
-            currentHealth = maxHealth;
-
-        healthBar.value = currentHealth;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHearts();
     }
+
+    private void UpdateHearts()
+    {
+        for (int i = 0; i < heartImages.Count; i++)
+        {
+            heartImages[i].color = i < currentHealth ? Color.red : Color.gray;
+        }
+    }
+    public void Retry()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
 }

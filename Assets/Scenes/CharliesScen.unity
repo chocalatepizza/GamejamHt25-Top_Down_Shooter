@@ -415,7 +415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  shootRange: 3
+  fireDistance: 3
+  shotCooldown: 1
 --- !u!114 &448030283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,7 +1444,7 @@ MonoBehaviour:
   firePoint: {fileID: 3553096823585602922}
   bulletCount: 12
   spreadAngle: 23
-  shotgunFireCooldown: 1
+  shotgunFireCooldown: 1.33
   laserbeamFirepoint: {fileID: 136860515333611430}
   laserbeamPrefab: {fileID: 573882679303026327, guid: 1d98c6a3f20736340ad53b4fb9ea9826, type: 3}
   laserbeamCooldown: 10

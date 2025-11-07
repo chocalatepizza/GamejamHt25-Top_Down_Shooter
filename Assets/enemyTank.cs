@@ -3,8 +3,9 @@ using UnityEngine;
 public class enemyTank : MonoBehaviour
 {
     private GameObject player;
-    public float speed = 4f;
-    public float fireDistance = 3f;
+    public float speed = 16f;
+    public float stopWalking = 3f;
+    public float fireDistance = 8f;
     public float shotCooldown = 1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,12 +25,13 @@ public class enemyTank : MonoBehaviour
         //checks distance between enemy and this enemy
         float playerDistance = Vector3.Distance(transform.position, playerPosition);
 
-        if (playerDistance < fireDistance)
+        if (playerDistance < stopWalking)
         { speed = 0f; }
-        
-
         else { speed = 4f; }
         transform.position += transform.up * speed * Time.deltaTime;
+
+        if (playerDistance < fireDistance)
+        { }
 
     }
 }

@@ -77,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
     {
         for (int i = 0; i < heartImages.Count; i++)
         {
-            heartImages[i].color = i < currentHealth ? Color.white : Color.black;
+            heartImages[i].color = i < currentHealth ? Color.red : Color.gray;
         }
     }
     public void Retry()
@@ -91,4 +91,4 @@ public class PlayerHealth : MonoBehaviour
         Application.Quit();
     }
 
-}
+}//Liam,Gustaw

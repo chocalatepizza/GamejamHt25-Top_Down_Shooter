@@ -30,28 +30,5 @@ public class enemyHarpoon : MonoBehaviour
             speed = 6f;
             transform.position += transform.up * speed * Time.deltaTime;
         }
-        if (tryShoot==true)
-        { speed = 0f; }
-        if (tryFlee == true)
-        {
-            speed += 2f;
-            transform.position -= transform.up * speed * Time.deltaTime; 
-        }
-
-        if (playerDistance > 6)
-            {
-                tryShoot = false;
-                tryFlee = false;
-            }
-            else if (playerDistance >= 3)
-            {
-                tryShoot = true;
-                tryFlee = false;
-            }
-            else
-            {
-                tryShoot = false;
-                tryFlee = true;
-            }
     }
 }

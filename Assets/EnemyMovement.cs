@@ -9,7 +9,6 @@ public class EnemyMovement : MonoBehaviour
     public float dashDuration = 0.2f;
     public float dashCooldown = 2f;
     public Transform player;
-
     private Rigidbody2D rb;
     private bool isDashing = false;
     private float dashTimer = 0f;

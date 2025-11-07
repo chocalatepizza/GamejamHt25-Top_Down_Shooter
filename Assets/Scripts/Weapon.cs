@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] public AudioSource shotgunSoundEffect;
 
     //Crossbow
     public Transform crossbowFirePoint;
@@ -73,6 +74,8 @@ public class Weapon : MonoBehaviour
         {
             ShootgunShoot();
             lastShotgunFireTime = Time.time;
+           shotgunSoundEffect.Play();
+     
 
         }
 

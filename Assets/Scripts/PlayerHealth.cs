@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
+        if (collision.gameObject.CompareTag("EnemyDash") || collision.gameObject.CompareTag("EnemyBullet"))
         {
             TakeDamage(1); // Adjust damage value as needed
         }
